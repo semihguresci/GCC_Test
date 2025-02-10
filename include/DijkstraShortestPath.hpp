@@ -24,8 +24,8 @@ auto HasNegativeValues(const std::vector<std::vector<DijkstraNode>>& graph)
     for (const auto& edge : edges) {
       if (edge.node < 0) return true;
     }
-    return false;
   }
+  return false;
 }
 
 /// <summary>

@@ -41,4 +41,6 @@ create_test_executable(TestMaxProduct tests/TestMaxProduct.cpp)
 create_test_executable(TestUniquePathsWithObstacles tests/TestUniquePathsWithObstacles.cpp)
 create_test_executable(TestDijkstraShortestPath tests/TestDijkstraShortestPath.cpp)
 create_test_executable(TestBellmanFordShortestPath tests/TestBellmanFordShortestPath.cpp)
+create_test_executable(TestSearchRotatedArray tests/TestSearchRotatedArray.cpp)
+
 
