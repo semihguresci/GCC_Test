@@ -42,5 +42,6 @@ create_test_executable(TestUniquePathsWithObstacles tests/TestUniquePathsWithObs
 create_test_executable(TestDijkstraShortestPath tests/TestDijkstraShortestPath.cpp)
 create_test_executable(TestBellmanFordShortestPath tests/TestBellmanFordShortestPath.cpp)
 create_test_executable(TestSearchRotatedArray tests/TestSearchRotatedArray.cpp)
+create_test_executable(TestValidateBTSInOrder tests/TestValidateBTSInOrder.cpp)
 
 
