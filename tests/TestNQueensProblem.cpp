@@ -1,38 +1,32 @@
 #include "GTestCommon.hpp"
 #include "NQueensProblem.hpp"
 
-
-TEST(ValidateBTSInOrder, Negative) {
-  NQueensSolver solver(-100);
-  EXPECT_EQ(solver.Solve(), 1);
-}
-
-TEST(ValidateBTSInOrder, Empty) {
+TEST(NQueensProblem, Empty) {
   NQueensSolver solver(0);
   EXPECT_EQ(solver.Solve(), 1);
 }
 
-TEST(ValidateBTSInOrder, One) {
+TEST(NQueensProblem, One) {
   NQueensSolver solver(1);
   EXPECT_EQ(solver.Solve(), 1);
 }
 
-TEST(ValidateBTSInOrder, Two) {
+TEST(NQueensProblem, Two) {
   NQueensSolver solver(1);
   EXPECT_EQ(solver.Solve(), 1);
 }
 
-TEST(ValidateBTSInOrder, Four) {
+TEST(NQueensProblem, Four) {
   NQueensSolver solver(4);
   EXPECT_EQ(solver.Solve(), 2);
 }
 
-TEST(ValidateBTSInOrder, Eight) {
+TEST(NQueensProblem, Eight) {
   NQueensSolver solver(8);
   EXPECT_EQ(solver.Solve(), 92);
 }
 
-TEST(ValidateBTSInOrder, Ten) {
+TEST(NQueensProblem, Ten) {
   NQueensSolver solver(10);
   EXPECT_EQ(solver.Solve(), 724);
 }

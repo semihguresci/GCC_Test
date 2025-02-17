@@ -1,27 +1,27 @@
 #include "GTestCommon.hpp"
 #include "GreedyAlgorithm.hpp"
 
-TEST(SearchRotatedArray, Empty) {
+TEST(GreedyAlgorithm, Empty) {
   std::vector<TimeInterval> nums = {};
   EXPECT_EQ(MinMeetingRoom(nums), 0);
 }
 
-TEST(SearchRotatedArray, One) {
+TEST(GreedyAlgorithm, One) {
   std::vector<TimeInterval> nums = {{0, 30}};
   EXPECT_EQ(MinMeetingRoom(nums), 1);
 }
 
-TEST(SearchRotatedArray, Two) {
+TEST(GreedyAlgorithm, Two) {
   std::vector<TimeInterval> nums = {{7, 10}, {2, 4}};
   EXPECT_EQ(MinMeetingRoom(nums), 1);
 }
 
-TEST(SearchRotatedArray, Three) {
+TEST(GreedyAlgorithm, Three) {
   std::vector<TimeInterval> nums = {{0, 30}, {5, 10}, {15, 20}};
   EXPECT_EQ(MinMeetingRoom(nums), 2);
 }
 
-TEST(SearchRotatedArray, Four) {
+TEST(GreedyAlgorithm, Four) {
   std::vector<TimeInterval> nums = {{0, 30}, {5, 10}, {15, 20}, {1, 5}};
   EXPECT_EQ(MinMeetingRoom(nums), 2);
 }
