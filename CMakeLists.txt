@@ -25,8 +25,6 @@ FetchContent_Declare(
 )
 
 FetchContent_MakeAvailable(googletest)
-target_compile_options(gmock PRIVATE -Wno-analyzer-malloc-leak) 
-target_compile_options(gmock_main PRIVATE -Wno-analyzer-malloc-leak) 
 
 enable_testing()
 
