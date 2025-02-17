@@ -43,5 +43,9 @@ create_test_executable(TestDijkstraShortestPath tests/TestDijkstraShortestPath.c
 create_test_executable(TestBellmanFordShortestPath tests/TestBellmanFordShortestPath.cpp)
 create_test_executable(TestSearchRotatedArray tests/TestSearchRotatedArray.cpp)
 create_test_executable(TestValidateBTSInOrder tests/TestValidateBTSInOrder.cpp)
+create_test_executable(TestNQueensProblem tests/TestNQueensProblem.cpp)
+create_test_executable(TestGreedyAlgorithm tests/TestGreedyAlgorithm.cpp)
+
+
 
 
