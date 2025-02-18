@@ -43,6 +43,8 @@ create_test_executable(TestSearchRotatedArray tests/TestSearchRotatedArray.cpp)
 create_test_executable(TestValidateBTSInOrder tests/TestValidateBTSInOrder.cpp)
 create_test_executable(TestNQueensProblem tests/TestNQueensProblem.cpp)
 create_test_executable(TestGreedyAlgorithm tests/TestGreedyAlgorithm.cpp)
+create_test_executable(TestRangesMap tests/TestRangesMap.cpp)
+
 
 
 
