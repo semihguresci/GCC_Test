@@ -12,7 +12,7 @@ class ValueRangeMap {
       std::map<int, std::pair<int, std::string>>::iterator it) {
     if (it == ranges.end()) return;
 
-    const auto& current_value = it->second.second;
+    const auto current_value = it->second.second;
     auto start_pos = it->first;
     auto end_pos = it->second.first;
 
@@ -52,7 +52,7 @@ class ValueRangeMap {
 
  public:
   void Add(int start, int end, const std::string& value) {
-    if (start > end) {
+    if (start >= end) {
       throw std::invalid_argument("Invalid range: start must be <= end");
     }
 
@@ -108,9 +108,10 @@ class ValueRangeMap {
 
   // Removes coverage in the interval [start, end].
   void Remove(int start, int end) {
-    if (start > end) {
+    if (start >= end) {
       throw std::invalid_argument("Invalid range: start must be <= end");
     }
+
 
     // Find the first interval that might overlap [start, end].
     // Move back one interval if necessary, to catch partial overlaps.
@@ -165,7 +166,7 @@ class ValueRangeMap {
   }
 
   void Update(int start, int end, const std::string& value) {
-    if (start > end) {
+    if (start >= end) {
       throw std::invalid_argument("Invalid range: start must be <= end");
     }
 
@@ -184,9 +185,10 @@ class ValueRangeMap {
   }
 
   auto QueryRange(int start, int end) -> std::pair<bool, std::string> {
-    if (start > end) {
+    if (start >= end) {
       throw std::invalid_argument("Invalid range: start must be <= end");
     }
+
 
     auto it = ranges.upper_bound(end);
     if (it == ranges.begin()) {

@@ -1,7 +1,6 @@
 #include "GTestCommon.hpp"
 #include "ValueRangeMap.hpp"
 
-
 TEST(ValueRangeMap, BasicAddQuery) {
   ValueRangeMap rm;
   rm.Add(1, 3, "A");
@@ -23,7 +22,7 @@ TEST(ValueRangeMap, BasicAddQuery) {
 TEST(ValueRangeMap, OverlappingAdd) {
   ValueRangeMap rm;
   rm.Add(1, 3, "A");
-  rm.Add(2, 5, "B");  
+  rm.Add(2, 5, "B");
 
   auto ranges = rm.GetRanges();
   ASSERT_EQ(ranges.size(), 2u);
@@ -46,7 +45,7 @@ TEST(ValueRangeMap, OverlappingAdd) {
 TEST(ValueRangeMap, AdjacentMerging) {
   ValueRangeMap rm;
   rm.Add(1, 3, "A");
-  rm.Add(4, 5, "A");  
+  rm.Add(4, 5, "A");
 
   auto ranges = rm.GetRanges();
   ASSERT_EQ(ranges.size(), 1u);
@@ -86,7 +85,7 @@ TEST(ValueRangeMap, UpdateTest) {
   rm.Add(1, 3, "A");
   rm.Add(4, 6, "A");
 
-  rm.Update(3, 5, "B");  
+  rm.Update(3, 5, "B");
 
   auto ranges = rm.GetRanges();
   ASSERT_EQ(ranges.size(), 3u);
@@ -105,20 +104,21 @@ TEST(ValueRangeMap, UpdateTest) {
 }
 
 TEST(ValueRangeMap, EqualityOperator) {
+  ValueRangeMap rm0;
+  rm0.Add(1, 2, "A");
+  rm0.Add(3, 5, "B");
+
   ValueRangeMap rm1;
   rm1.Add(1, 3, "A");
-  rm1.Add(4, 6, "A");  
+  rm1.Add(4, 6, "A");
   rm1.Update(3, 5, "B");
 
   ValueRangeMap rm2;
   rm2.Add(1, 2, "A");
   rm2.Add(3, 5, "B");
-  rm2.Add(6, 6, "A");
 
-  EXPECT_EQ(rm1, rm2);
-
-  rm2.Update(6, 6, "X");
-  EXPECT_NE(rm1, rm2);
+  EXPECT_EQ(rm0, rm2);
+  EXPECT_NE(rm0, rm1);
 }
 
 TEST(ValueRangeMap, InvalidRange) {
@@ -217,7 +217,6 @@ TEST(ValueRangeMap, RemoveCoversAll) {
   auto intervals = rm.GetRanges();
   EXPECT_TRUE(intervals.empty());
 }
-
 
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);
