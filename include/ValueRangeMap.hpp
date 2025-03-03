@@ -1,3 +1,6 @@
+#ifndef VALUERANGEMAP_HPP
+#define VALUERANGEMAP_HPP
+
 #include <algorithm>
 #include <exception>
 #include <map>
@@ -112,7 +115,6 @@ class ValueRangeMap {
       throw std::invalid_argument("Invalid range: start must be <= end");
     }
 
-
     // Find the first interval that might overlap [start, end].
     // Move back one interval if necessary, to catch partial overlaps.
     auto it = ranges.lower_bound(start);
@@ -189,7 +191,6 @@ class ValueRangeMap {
       throw std::invalid_argument("Invalid range: start must be <= end");
     }
 
-
     auto it = ranges.upper_bound(end);
     if (it == ranges.begin()) {
       return {false, ""};
@@ -215,3 +216,5 @@ class ValueRangeMap {
     return this->GetRanges() == other.GetRanges();
   }
 };
+
+#endif  // !VALUERANGEMAP_HPP

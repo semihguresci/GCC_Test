@@ -1,3 +1,6 @@
+#ifndef RANGEMAP_HPP
+#define RANGEMAP_HPP
+
 #include <algorithm>
 #include <map>
 #include <stdexcept>
@@ -128,3 +131,5 @@ class RangeMap {
     return this->GetRanges() == other.GetRanges();
   }
 };
+
+#endif  // !RANGEMAP_HPP

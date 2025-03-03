@@ -46,6 +46,8 @@ create_test_executable(TestGreedyAlgorithm tests/TestGreedyAlgorithm.cpp)
 create_test_executable(TestRangesMap tests/TestRangesMap.cpp)
 create_test_executable(TestValueRangeMap tests/TestValueRangeMap.cpp)
 create_test_executable(TestSegmentMap tests/TestSegmentMap.cpp)
+create_test_executable(TestMOsAlgorithm tests/TestMOsAlgorithm.cpp)
+
 
 
 
