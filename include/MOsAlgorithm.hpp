@@ -3,6 +3,7 @@
 
 #include <algorithm>
 #include <cmath>
+#include <execution>
 #include <span>
 #include <unordered_map>
 #include <vector>
@@ -12,11 +13,8 @@ struct MosQuery {
 };
 
 class MosAlgorithm {
- private:
-  std::size_t block_size;
-
  public:
-  auto Process(std::span<int> arr, std::span<MosQuery> queries)
+  auto Process(std::span<const int> arr, std::span<MosQuery> queries)
       -> std::vector<int> {
     size_t n = arr.size();
 
@@ -24,7 +22,7 @@ class MosAlgorithm {
       return std::vector<int>(queries.size(), 0);
     }
 
-    block_size = static_cast<std::size_t>(std::sqrt(n));
+    std::size_t block_size = static_cast<std::size_t>(std::sqrt(n));
 
     for (const auto& query : queries) {
       if (query.l < 0 || query.r >= n || query.l > query.r) {
@@ -39,12 +37,13 @@ class MosAlgorithm {
       return a.r < b.r;
     };
 
-    std::ranges::sort(queries, compare);
+    std::sort(std::execution::par, queries.begin(), queries.end(), compare);
 
     std::size_t c_l = 0;
     std::size_t c_r = 0;
     std::size_t distinct_count = 0;
     std::unordered_map<int, int> freq;
+    freq.reserve(n);
 
     auto add = [&](int x) {
       if (++freq[x] == 1) {
