@@ -49,6 +49,7 @@ create_test_executable(TestSegmentMap tests/TestSegmentMap.cpp)
 create_test_executable(TestMOsAlgorithm tests/TestMOsAlgorithm.cpp)
 create_test_executable(TestPower tests/TestPower.cpp)
 create_test_executable(TestFibonacci tests/TestFibonacci.cpp)
+create_test_executable(TestPuzzle tests/TestPuzzle.cpp)
 
 
 
