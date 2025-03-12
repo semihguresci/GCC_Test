@@ -130,6 +130,54 @@ TEST(Puzzle, PermutationsTest) {
   }
 }
 
+TEST(Puzzle, PowerModuloTest) {
+  EXPECT_EQ(puzzle::PowerModulo(2, 10, 100), 24);
+  EXPECT_EQ(puzzle::PowerModulo(3, 5, 11), 1);
+  EXPECT_EQ(puzzle::PowerModulo(5, 0, 10), 1);
+  EXPECT_EQ(puzzle::PowerModulo(0, 5, 10), 0);
+  EXPECT_EQ(puzzle::PowerModulo(123, 456, 1), 0);
+  EXPECT_THROW(puzzle::PowerModulo(2, 10, 0), std::invalid_argument);
+}
+
+TEST(Puzzle, IntegerSqrtTest) {
+  EXPECT_EQ(puzzle::IntegerSqrt(0), 0);
+  EXPECT_EQ(puzzle::IntegerSqrt(1), 1);
+  EXPECT_EQ(puzzle::IntegerSqrt(4), 2);
+  EXPECT_EQ(puzzle::IntegerSqrt(16), 4);
+  EXPECT_EQ(puzzle::IntegerSqrt(100), 10);
+  EXPECT_THROW(puzzle::IntegerSqrt(-1), std::invalid_argument);
+}
+
+TEST(Puzzle, IsPrimeTest) {
+  EXPECT_EQ(puzzle::IsPrime(0), false);
+  EXPECT_EQ(puzzle::IsPrime(1), false);
+  EXPECT_EQ(puzzle::IsPrime(4), false);
+  EXPECT_EQ(puzzle::IsPrime(16), false);
+  EXPECT_EQ(puzzle::IsPrime(100), false);
+  EXPECT_EQ(puzzle::IsPrime(-1), false);
+  EXPECT_EQ(puzzle::IsPrime(2), true);
+  EXPECT_EQ(puzzle::IsPrime(3), true);
+  EXPECT_EQ(puzzle::IsPrime(5), true);
+  EXPECT_EQ(puzzle::IsPrime(29), true);
+  EXPECT_EQ(puzzle::IsPrime(21179), true);
+}
+
+TEST(Puzzle, PascalTriangleRowTest) {
+  {
+    std::vector<int> result = {1};
+    EXPECT_EQ(puzzle::PascalTriangleRow(0), result);
+  }
+  {
+    std::vector<int> result = {1, 1};
+    EXPECT_EQ(puzzle::PascalTriangleRow(1), result);
+  }
+  {
+    std::vector<int> result = {1, 4, 6, 4, 1};
+    EXPECT_EQ(puzzle::PascalTriangleRow(4), result);
+  }
+  EXPECT_THROW(puzzle::PascalTriangleRow(-1), std::invalid_argument);
+}
+
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();

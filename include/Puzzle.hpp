@@ -106,5 +106,73 @@ std::vector<std::string> PermuationsIterative(std::string key, int left,
   return result;
 }
 
+auto PowerModulo(long long base, long long exponent, long long m) -> long long {
+  if (m == 0) {
+    throw std::invalid_argument("Modulus (m) cannot be zero.");
+  }
+  long long result = 1;
+  base = base % m;
+  while (exponent > 0) {
+    if (exponent % 2 == 1) {
+      result = (result * base) % m;
+    }
+    exponent = exponent >> 1;
+    base = (base * base) % m;
+  }
+  return result;
+}
+
+auto IntegerSqrt(long long n) -> long long {
+  if (n < 0) {
+    throw std::invalid_argument(
+        "Cannot compute square root of negative number.");
+  }
+  if (n < 2) {
+    return n;
+  }
+
+  int x = n;
+
+  while (x > n / x) {
+    x = (x + n / x) / 2;
+  }
+  return x;
+}
+
+auto IsPrime(long long n) -> bool {
+  if (n <= 1) {
+    return false;
+  }
+  if (n == 2) {
+    return true;
+  }
+  if (n % 2 == 0) {
+    return false;
+  }
+
+  std::vector<bool> prime(n + 1, true);
+
+  for (long long i = 2; i * i <= n; ++i) {
+    if (prime[i]) {
+      for (long long j = i * i; j <= n; j += i) {
+        prime[j] = false;
+      }
+    }
+  }
+  return prime[n];
+}
+
+auto PascalTriangleRow(int n) -> std::vector<int> {
+  if (n < 0) {
+    throw std::invalid_argument("Invalid argument.");
+  }
+  std::vector<int> result(n + 1, 0);
+  result[0] = 1;
+  for (int i = 1; i <= n; ++i) {
+    result[i] = result[i - 1] * (n - i + 1) / i;  // Combinatorial Formula nCk
+  }
+  return result;
+}
+
 }  // namespace puzzle
 #endif  // !PUZZLE_HPP
