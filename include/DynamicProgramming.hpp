@@ -62,7 +62,7 @@ auto CoinChange(std::span<int> coins, int amont) -> int {
 
   for (int i = 1; i <= amont; ++i) {
     for (int j = 0; j < coins.size(); ++j) {
-      if (coins[j] <= i && dp[i - coins[j]] != INT_MAX) {
+      if (coins[j] <= i && dp[i - coins[j]] !=  std::numeric_limits<int>::max()) {
         dp[i] = std::min(dp[i], dp[i - coins[j]] + 1);
       }
     }
