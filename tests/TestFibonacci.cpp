@@ -35,6 +35,17 @@ TEST(Fibonacci, FibonacciTests) {
   EXPECT_EQ(FibonacciDP<std::uint64_t>(base9), result9);
   EXPECT_EQ(FibonacciDP<std::uint64_t>(base10), result10);
 
+  EXPECT_EQ(FibonacciDPSpaceOptimized<std::uint64_t>(base1), result1);
+  EXPECT_EQ(FibonacciDPSpaceOptimized<std::uint64_t>(base2), result2);
+  EXPECT_EQ(FibonacciDPSpaceOptimized<std::uint64_t>(base3), result3);
+  EXPECT_EQ(FibonacciDPSpaceOptimized<std::uint64_t>(base4), result4);
+  EXPECT_EQ(FibonacciDPSpaceOptimized<std::uint64_t>(base5), result5);
+  EXPECT_EQ(FibonacciDPSpaceOptimized<std::uint64_t>(base6), result6);
+  EXPECT_EQ(FibonacciDPSpaceOptimized<std::uint64_t>(base7), result7);
+  EXPECT_EQ(FibonacciDPSpaceOptimized<std::uint64_t>(base8), result8);
+  EXPECT_EQ(FibonacciDPSpaceOptimized<std::uint64_t>(base9), result9);
+  EXPECT_EQ(FibonacciDPSpaceOptimized<std::uint64_t>(base10), result10);
+
   EXPECT_EQ(FibonacciMatrix<std::uint64_t>().Fibonacci(base1), result1);
   EXPECT_EQ(FibonacciMatrix<std::uint64_t>().Fibonacci(base2), result2);
   EXPECT_EQ(FibonacciMatrix<std::uint64_t>().Fibonacci(base3), result3);
