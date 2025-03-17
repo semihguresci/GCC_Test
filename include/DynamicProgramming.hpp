@@ -2,6 +2,7 @@
 #define DYNAMICPROGRAMMING_HPP
 
 #include <algorithm>
+#include <limits>
 #include <span>
 #include <stdexcept>
 #include <tuple>
@@ -62,7 +63,8 @@ auto CoinChange(std::span<int> coins, int amont) -> int {
 
   for (int i = 1; i <= amont; ++i) {
     for (int j = 0; j < coins.size(); ++j) {
-      if (coins[j] <= i && dp[i - coins[j]] !=  std::numeric_limits<int>::max()) {
+      if (coins[j] <= i &&
+          dp[i - coins[j]] != std::numeric_limits<int>::max()) {
         dp[i] = std::min(dp[i], dp[i - coins[j]] + 1);
       }
     }
@@ -87,10 +89,10 @@ auto LengthofLongestIncreasingSubsequence(std::span<int> nums) {
   return max_length;
 }
 
-auto Knapsack01Problem(int W, std::span<int> weights, std::span<int> values) -> int {
+auto Knapsack01Problem(int W, std::span<int> weights, std::span<int> values)
+    -> int {
   int n = weights.size();
-  std::vector<std::vector<int>> dp(n + 1,
-                                   std::vector<int>(W + 1, 0));
+  std::vector<std::vector<int>> dp(n + 1, std::vector<int>(W + 1, 0));
 
   for (size_t i = 1; i <= n; ++i) {
     for (int w = 1; w <= W; ++w) {
