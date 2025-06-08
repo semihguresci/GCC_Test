@@ -52,11 +52,7 @@ create_test_executable(TestFibonacci tests/TestFibonacci.cpp)
 create_test_executable(TestPuzzle tests/TestPuzzle.cpp)
 create_test_executable(TestDynamicProgramming tests/TestDynamicProgramming.cpp)
 create_test_executable(TestBinarySearch tests/TestBinarySearch.cpp)
-
-
-
-
-
-
-
-
+create_test_executable(TestTwoSum tests/TestTwoSum.cpp)
+create_test_executable(TestReverseString tests/TestReverseString.cpp)
+create_test_executable(TestValidPharantesis tests/TestValidPharantesis.cpp)
+create_test_executable(TestMergeSortedList tests/TestMergeSortedList.cpp)
