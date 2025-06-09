@@ -56,3 +56,6 @@ create_test_executable(TestTwoSum tests/TestTwoSum.cpp)
 create_test_executable(TestReverseString tests/TestReverseString.cpp)
 create_test_executable(TestValidPharantesis tests/TestValidPharantesis.cpp)
 create_test_executable(TestMergeSortedList tests/TestMergeSortedList.cpp)
+create_test_executable(TestMaximumSubarray tests/TestMaximumSubarray.cpp)
+create_test_executable(TestLinkedListCycleDetection tests/TestLinkedListCycleDetection.cpp)
+
