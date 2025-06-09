@@ -58,4 +58,6 @@ create_test_executable(TestValidPharantesis tests/TestValidPharantesis.cpp)
 create_test_executable(TestMergeSortedList tests/TestMergeSortedList.cpp)
 create_test_executable(TestMaximumSubarray tests/TestMaximumSubarray.cpp)
 create_test_executable(TestLinkedListCycleDetection tests/TestLinkedListCycleDetection.cpp)
+create_test_executable(TestAddTwoNumbers tests/TestAddTwoNumbers.cpp)
+create_test_executable(TestLongestSubstringWithoutRepeatingCharacters tests/TestLongestSubstringWithoutRepeatingCharacters.cpp)
 
