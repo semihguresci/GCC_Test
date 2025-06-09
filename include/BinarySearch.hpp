@@ -5,7 +5,7 @@
 #include <span>
 #include <vector> 
 
-namespace binary_search {
+namespace BinarySearch {
 
 auto LengthofLongestIncreasingSubsequence(std::span<int> nums) -> int {
   if (nums.empty()) {
@@ -24,6 +24,23 @@ auto LengthofLongestIncreasingSubsequence(std::span<int> nums) -> int {
   return static_cast<int>(tails.size());
 }
 
-}  // namespace binary_search
+template <typename T>
+auto Search(std::span<T> nums, T target) -> int {
+  int left = 0;
+  int right = static_cast<int>(nums.size()) - 1;
+  while (left <= right) {
+    int mid = left + (right - left) / 2;
+    if (nums[mid] == target) {
+      return mid;
+    } else if (nums[mid] < target) {
+      left = mid + 1;
+    } else {
+      right = mid - 1;
+    }
+  }
+  return -1;  
+}
+
+}  // namespace BinarySearch
 
 #endif  // !BINARY_SEARCH_HPP

@@ -4,6 +4,8 @@
 #include <stdexcept>
 #include <vector>
 
+namespace Fibonacci {
+
 template <typename T>
 T FibonacciIterative(T n) {
   if (n < 0) {
@@ -55,7 +57,7 @@ class FibonacciMatrix {
       Multiply(M, M);
       n /= 2;
     }
-    F = result; 
+    F = result;
   }
 
   T Fibonacci(T n) {
@@ -67,7 +69,7 @@ class FibonacciMatrix {
     if (n == 1) return 1;
 
     Matrix2x2 F = {{{1, 1}, {1, 0}}};
-    Power(F, n-1);
+    Power(F, n - 1);
 
     return F.data[0][0];
   }
@@ -111,5 +113,19 @@ T FibonacciDPSpaceOptimized(T n) {
   return curr;
 }
 
+int ClimbStairs(int n) {
+  if (n <= 2) return n;
+  int a = 1;
+  int b = 2;
+  int c = 0;
+  for (int i = 3; i <= n; ++i) {
+    c = a+ b;
+    a = b;
+    b = c;
+  }
+  return b;
+}
+
+}  // namespace Fibonacci
 
 #endif  // FIBONACCI_HPP

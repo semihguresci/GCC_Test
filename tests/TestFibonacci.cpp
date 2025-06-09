@@ -1,6 +1,8 @@
 #include "Fibonacci.hpp"
 #include "GTestCommon.hpp"
 
+using namespace Fibonacci;
+
 TEST(Fibonacci, FibonacciTests) {
   std::uint64_t base1 = 0, result1 = 0;
   std::uint64_t base2 = 1, result2 = 1;
@@ -56,6 +58,21 @@ TEST(Fibonacci, FibonacciTests) {
   EXPECT_EQ(FibonacciMatrix<std::uint64_t>().Fibonacci(base8), result8);
   EXPECT_EQ(FibonacciMatrix<std::uint64_t>().Fibonacci(base9), result9);
   EXPECT_EQ(FibonacciMatrix<std::uint64_t>().Fibonacci(base10), result10);
+}
+
+TEST(Fibonacci, ClimbStairsTest) {
+  EXPECT_EQ(ClimbStairs(0), 0);
+  EXPECT_EQ(ClimbStairs(1), 1);
+  EXPECT_EQ(ClimbStairs(2), 2);
+
+  EXPECT_EQ(ClimbStairs(3), 3);
+  EXPECT_EQ(ClimbStairs(4), 5);
+  EXPECT_EQ(ClimbStairs(5), 8);
+
+  EXPECT_EQ(ClimbStairs(10), 89);
+  EXPECT_EQ(ClimbStairs(20), 10946);
+
+  EXPECT_EQ(ClimbStairs(45), 1836311903);
 }
 
 int main(int argc, char **argv) {
