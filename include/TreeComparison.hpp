@@ -9,6 +9,7 @@ also be considered as a subtree of itself.
 
 #include <string>
 #include <vector>
+#include <sstream>
 
 namespace TreeComparison {
 template <typename T>
@@ -95,3 +96,4 @@ class SubtreeKMP {
 }  // namespace TreeComparison
 
 #endif  // TREECOMPARISON_HPP
+
