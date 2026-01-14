@@ -26,13 +26,21 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(googletest)
 
-enable_testing()
+
+include(CTest)      
+include(GoogleTest)  
+
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 
 function(create_test_executable test_name source_files)
     add_executable(${test_name} ${source_files})
     target_include_directories(${test_name} PRIVATE include)
     target_link_libraries(${test_name} PRIVATE gtest gtest_main) 
-    add_test(NAME ${test_name} COMMAND ${test_name})
+    #add_test(NAME ${test_name} COMMAND ${test_name})
+    gtest_discover_tests(${test_name}
+        DISCOVERY_TIMEOUT 30
+        WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+    )
 endfunction()
 
 create_test_executable(TestMaxProduct tests/TestMaxProduct.cpp)
@@ -60,4 +68,5 @@ create_test_executable(TestMaximumSubarray tests/TestMaximumSubarray.cpp)
 create_test_executable(TestLinkedListCycleDetection tests/TestLinkedListCycleDetection.cpp)
 create_test_executable(TestAddTwoNumbers tests/TestAddTwoNumbers.cpp)
 create_test_executable(TestLongestSubstringWithoutRepeatingCharacters tests/TestLongestSubstringWithoutRepeatingCharacters.cpp)
+create_test_executable(TestTreeComparison tests/TestTreeComparison.cpp)
 
