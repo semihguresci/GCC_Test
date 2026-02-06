@@ -72,4 +72,5 @@ create_test_executable(TestTreeComparison tests/TestTreeComparison.cpp)
 create_test_executable(TestPostOrderDFS tests/TestPostOrderDFS.cpp)
 create_test_executable(TestURLShortener tests/TestURLShortener.cpp)
 create_test_executable(TestReverse3Trick tests/TestReverse3Trick.cpp)
+create_test_executable(TestMajorityElement tests/TestMajorityElement.cpp)
 
