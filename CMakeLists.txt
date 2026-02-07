@@ -73,4 +73,6 @@ create_test_executable(TestPostOrderDFS tests/TestPostOrderDFS.cpp)
 create_test_executable(TestURLShortener tests/TestURLShortener.cpp)
 create_test_executable(TestReverse3Trick tests/TestReverse3Trick.cpp)
 create_test_executable(TestMajorityElement tests/TestMajorityElement.cpp)
+create_test_executable(TestRotatedPeakElement tests/TestRotatedPeakElement.cpp)
+create_test_executable(TestMinDiffSubarray tests/TestMinDiffSubarray.cpp)
 
