@@ -79,6 +79,8 @@ create_test_executable(TestDeepCloneLL tests/TestDeepCloneLL.cpp)
 create_test_executable(TestMaxXOR tests/TestMaxXOR.cpp)
 create_test_executable(TestMaxNonAdjacentSum tests/TestMaxNonAdjacentSum.cpp)
 create_test_executable(TestMaxJump tests/TestMaxJump.cpp)
+create_test_executable(TestProductExceptSelf tests/TestProductExceptSelf.cpp)
+
 
 
 
