@@ -9,6 +9,8 @@
 #include <algorithm>
 #include <cstdint>
 #include <vector>
+#include <limits>
+
 
 class MaxNonAdjacentSum {
  public:
