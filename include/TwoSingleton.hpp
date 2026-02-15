@@ -19,25 +19,24 @@ class TwoSingleton {
 
   static TwoSingleton& getInstance() {
     init_once();
-    const auto count = call_count_.fetch_add(1, std::memory_order_relaxed);
-    const auto call__number = count + 1;
-    return (call__number % 2 == 1) ? *instance1_ : *instance2_;
+    auto count = call_count_.fetch_add(1, std::memory_order_relaxed);
+    return (count % 2 == 0) ? *instance1_ : *instance2_;
   }
   int id() const { return id_; }
 
  private:
   explicit TwoSingleton(int id) : id_(id) {}
 
- static void init_once() {
+  static void init_once() {
     std::call_once(init_flag_, [] {
-      instance1_.reset(new TwoSingleton(1));
-      instance2_.reset(new TwoSingleton(2));
+      instance1_ = new TwoSingleton(1);
+      instance2_ = new TwoSingleton(2);
     });
   }
 
  private:
-  static inline std::unique_ptr<TwoSingleton> instance1_;
-  static inline std::unique_ptr<TwoSingleton> instance2_;
+  static inline TwoSingleton* instance1_ = nullptr;
+  static inline TwoSingleton* instance2_ = nullptr;
   static inline std::once_flag init_flag_;
   static inline std::atomic<std::uint64_t> call_count_{0};
   int id_;
