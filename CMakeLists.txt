@@ -81,6 +81,8 @@ create_test_executable(TestMaxNonAdjacentSum tests/TestMaxNonAdjacentSum.cpp)
 create_test_executable(TestMaxJump tests/TestMaxJump.cpp)
 create_test_executable(TestProductExceptSelf tests/TestProductExceptSelf.cpp)
 create_test_executable(TestLISLengthCalculation tests/TestLISLengthCalculation.cpp)
+create_test_executable(TestRowColWordSearch tests/TestRowColWordSearch.cpp)
+
 
 
 
